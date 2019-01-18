@@ -1,5 +1,4 @@
 // Sélection des elements HTML "page"
-var body = document.querySelector('body');
 var arrowleft = document.querySelector('.left');
 var arrowright = document.querySelector('.right');
 var arrowbtn = document.querySelector('.btn');
@@ -12,7 +11,6 @@ var myH2 = document.createElement('h2');
 var myP = document.createElement('p');
 var myH2 = document.createElement('h2');
 var slider = document.querySelector('.slider');
-var slide = document.querySelectorAll('.slide');
 var myfirstProject = document.createElement('div');
 var myfirstProjectDiv = document.createElement('div');
 var myfirstProjectTitle = document.createElement('h2');
@@ -20,51 +18,29 @@ var myfirstProjectDescription = document.createElement('p');
 
 // Scroll (click + scroll)
 // à remplir
-// arrowbtn.addEventListener('click',function(body){
-// 		body.style.transform = "translateX(100vh)";
-// 		console.log('tomate');
-// 	};
-// });
-
 
 // Slider (clicks + effet de slide)
 // à remplir
-// var currentslide = 1;
-// arrowright.addEventListener('click',function(e){
-// 	e.preventDefault();
-// 	// currentslide += e.deltaY;
-// 	currentslide = currentslide + 1;
-//
-// 	// if (currentslide < 1) currentslide = 1;
-// 	// if (currentslide > 3) currentslide = 3;
-// 	while(currentslide < 3){
-// 		console.log('currentslide = ' + currentslide);
-// 		slider.style.transform = "translateX(-100vw)";
-// 	};
-// });
-//
-// arrowleft.addEventListener('click',function(e){
-// 	e.preventDefault();
-//
-// 	// currentslide += e.deltaY;
-// 	currentslide = currentslide - 1;
-//
-// 	// if (currentslide < 1) currentslide = 1;
-// 	// if (currentslide > 3) currentslide = 3;
-// 	while(currentslide > 1){
-// 		console.log('currentslide = ' + currentslide);
-// 		slider.style.transform = "translateX(-100vw)";
-// 	};
-// });
+var i = 0;
+function VaADroite(){
+	if(i = 0){
+		slider.style.transform = "currentposition + translateX(-100vw)";
+		i++;
+	}
+	// if(i = 1) slider.style.transform = "currentposition + translateX(-200vw)";
+	console.log("i = " + i);
+}
 
-arrowright.addEventListener("click", function(){
-	for(var i=0 ; i< 3; i++){
-		console.log(i);
-		slider.style.transform = "translateX(-100vw)";
-	};
-});
+arrowright.addEventListener('click',VaADroite);
 
+function VaAGauche(){
+		i = i--;
+	// if(i = 0) slider.style.transform = "currentposition + translateX(-100vw)";
+	// if(i = 1) slider.style.transform = "currentposition + translateX(-200vw)";
+	console.log("i = " + i);
+}
 
+arrowleft.addEventListener('click',VaAGauche);
 
 // Chargment des données et création des pages (fetch + appel de fonctions)
 fetch('https://dev.drangies.fr/exam').then(function(res) {
